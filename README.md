@@ -1,4 +1,4 @@
-<h1>Active Directory with Splunk</h1>
+<h1>Active Directory with Splunk: Password cracking using Crowbar</h1>
 
 
 
@@ -15,7 +15,6 @@ This project focuses on integrating Active Directory (AD) with Splunk, a powerfu
 <h2>Tools and Commands Used</h2>
 
 - <b>Crowbar</b>
-- <b>Atomic Red Team</b>
 
 <h2>Environments Used </h2>
 
@@ -32,17 +31,28 @@ Network Diagram: <br/>
 <img src="https://imgur.com/pEdUmkX.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
   
-<h2>Password crack with Crowbar:</h2>  
+<h2>Password crack using Crowbar:</h2>  
 
 <p align="center">
-Crowbar attack on Kali Linux: <br/>
+Crowbar attack from Kali Linux: <br/>
 <img src="https://imgur.com/bJR5F1T.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
-Crowbar attack on Kali Linux: <br/>
-<img src="https://imgur.com/bJR5F1T.png" height="80%" width="80%" alt="Project walk-through"/>
-
-
+Event code alert on Splunk: <br/>
+<img src="https://imgur.com/KHPcF6r.png" height="80%" width="80%" alt="Project walk-through"/>
+<br />
+<br />
+Event code alert on Splunk: <br/>
+<img src="https://imgur.com/8kX9qj7.png" height="80%" width="80%" alt="Project walk-through"/>
+<br />
+<br />
+Splunk showing attacker's machine and IP address: <br/>
+<img src="https://imgur.com/BKljCZr.png" height="80%" width="80%" alt="Project walk-through"/> 
+<br />
+<br />
+Windows event 4625 description: <br/>
+<img src="https://imgur.com/YpvjbUe.png" height="80%" width="80%" alt="Project walk-through"/>
+  
 </p>
 
 
