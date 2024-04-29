@@ -31,7 +31,15 @@ Network Diagram: <br/>
 <img src="https://imgur.com/pEdUmkX.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
   
-<h2>Password crack using Crowbar:</h2>  
+<h2>Password crack using Crowbar:</h2>
+
+Crowbar is a brute-force attack tool used to crack passwords. In an Active Directory environment, it can be utilized to gain access to user credentials by attempting various password combinations until a correct one is found. The process typically involves providing Crowbar with a wordlist or dictionary of potential passwords, and it systematically tries each combination against user accounts within the Active Directory until successful authentication occurs, granting unauthorized access to the system. This method exploits weak or easily guessable passwords to compromise user accounts and gain unauthorized access to the network.
+
+
+
+
+
+<br />
 
 <p align="center">
 Crowbar attack from Kali Linux: <br/>
