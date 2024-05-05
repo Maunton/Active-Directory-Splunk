@@ -38,6 +38,10 @@ Crowbar is a brute-force attack tool used to crack passwords. In an Active Direc
 
 
 
+## Usage:
+    crowbar -b rdp -u jsmith -C passwords.txt -s 10.0.2.100/32
+  
+
 
 <br />
 
@@ -46,11 +50,11 @@ Crowbar attack from Kali Linux: <br/>
 <img src="https://imgur.com/bJR5F1T.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
-Event code alert on Splunk: <br/>
+EventCode 4625 has 122 counts in Splunk: <br/>
 <img src="https://imgur.com/KHPcF6r.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
-Event code alert on Splunk: <br/>
+Account failed to login 122 times: <br/>
 <img src="https://imgur.com/8kX9qj7.png" height="80%" width="80%" alt="Project walk-through"/>
 <br />
 <br />
