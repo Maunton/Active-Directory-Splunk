@@ -1,79 +1,121 @@
-<h1>Active Directory with Splunk: Password cracking using Crowbar</h1>
+# Active Directory Security Monitoring Lab with Splunk
 
+## Overview
+This project demonstrates how I built a small Active Directory lab and used Splunk to monitor, investigate, and visualize Windows authentication activity in a controlled environment.
 
+The primary goal of this lab was to improve visibility into failed logon behavior, identify where suspicious authentication attempts originated, and better understand how Windows security events appear inside a SIEM.
 
-<h2>Description</h2>
-This project focuses on integrating Active Directory (AD) with Splunk, a powerful platform for monitoring, searching, analyzing, and visualizing machine-generated data. By integrating AD with Splunk, organizations can gain valuable insights into user authentication, access patterns, security events, and overall system health within their Active Directory environment.
+## What This Project Demonstrates
+- Active Directory lab setup and log visibility
+- Windows authentication event analysis in Splunk
+- Detection of repeated failed logon activity
+- Correlation of source host and IP address
+- Investigation of Windows Event ID 4625
+- Hands-on SOC-style troubleshooting and validation
 
+## Lab Goal
+Generate authentication failures in a controlled lab environment and verify that:
+1. The events are captured correctly
+2. Splunk can surface meaningful patterns
+3. The source of the activity can be identified quickly
+4. Failed logon telemetry can support security investigation workflows
 
+## Environment
+- VirtualBox
+- Kali Linux
+- Windows 10
+- Windows Server 2022
+- Ubuntu Server 22.04
+- Splunk
 
+## Tools Used
+- Splunk
+- Active Directory
+- Windows Event Logs
+- Kali Linux
+- Crowbar (used in an isolated lab to generate failed authentication activity for detection testing)
 
-
-<br />
-
-
-<h2>Tools and Commands Used</h2>
-
-- <b>Crowbar</b>
-
-<h2>Environments Used </h2>
-
-- <b>VirtualBox VM</b>
-- <b>Kali Linux</b>
-- <b>Windows 10</b>
-- <b>Windows Server 22</b>
-- <b>Ubuntu Server 22.04</b>
-
-<h2>Project walk-through:</h2>
-
+## Network Diagram
 <p align="center">
-Network Diagram: <br/>
-<img src="https://imgur.com/pEdUmkX.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-  
-<h2>Password crack using Crowbar:</h2>
-
-Crowbar is a brute-force attack tool used to crack passwords. In an Active Directory environment, it can be utilized to gain access to user credentials by attempting various password combinations until a correct one is found. The process typically involves providing Crowbar with a wordlist or dictionary of potential passwords, and it systematically tries each combination against user accounts within the Active Directory until successful authentication occurs, granting unauthorized access to the system. This method exploits weak or easily guessable passwords to compromise user accounts and gain unauthorized access to the network.
-
-
-
-
-## Usage:
-    crowbar -b rdp -u jsmith -C passwords.txt -s 10.0.2.100/32
-  
-
-
-<br />
-
-<p align="center">
-Crowbar attack from Kali Linux: <br/>
-<img src="https://imgur.com/bJR5F1T.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-EventCode 4625 has 122 counts in Splunk: <br/>
-<img src="https://imgur.com/KHPcF6r.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-Account failed to login 122 times: <br/>
-<img src="https://imgur.com/8kX9qj7.png" height="80%" width="80%" alt="Project walk-through"/>
-<br />
-<br />
-Splunk showing attacker's machine and IP address: <br/>
-<img src="https://imgur.com/BKljCZr.png" height="80%" width="80%" alt="Project walk-through"/> 
-<br />
-<br />
-Windows event 4625 description: <br/>
-<img src="https://imgur.com/YpvjbUe.png" height="80%" width="80%" alt="Project walk-through"/>
-  
+  <img src="https://imgur.com/pEdUmkX.png" width="80%" alt="Active Directory and Splunk lab network diagram" />
 </p>
 
+## Project Walkthrough
 
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
+### 1) Build the Lab
+I created a small virtualized environment that included:
+- A Windows Server domain environment
+- A Windows 10 endpoint
+- A Kali Linux system to generate test activity
+- Splunk for log collection, searching, and visualization
+
+### 2) Generate Failed Authentication Activity
+To test visibility, I generated repeated failed logon attempts in the lab. This allowed me to validate whether Splunk was receiving the correct Windows security events and whether the activity could be investigated effectively.
+
+### 3) Investigate in Splunk
+Once the events were indexed, I searched for failed authentication activity and analyzed the relevant Windows security logs.
+
+Key focus areas:
+- Event ID 4625 (failed logon)
+- Number of failed attempts
+- Target user account
+- Source workstation and IP address
+- Event details useful for triage
+
+### 4) Confirm Findings
+Through Splunk, I was able to observe:
+- A high volume of failed logon events
+- Repeated failures associated with a user account
+- Source attribution back to the originating system
+- Useful event detail for investigation and incident context
+
+## Key Screenshots
+
+### Failed Authentication Activity from Lab System
+<p align="center">
+  <img src="https://imgur.com/bJR5F1T.png" width="80%" alt="Lab-generated failed authentication activity" />
+</p>
+
+### Event ID 4625 Count in Splunk
+<p align="center">
+  <img src="https://imgur.com/KHPcF6r.png" width="80%" alt="Splunk search showing Event ID 4625 counts" />
+</p>
+
+### Repeated Failed Logons for the Account
+<p align="center">
+  <img src="https://imgur.com/8kX9qj7.png" width="80%" alt="Splunk results showing repeated failed account logons" />
+</p>
+
+### Source Host and IP Visibility
+<p align="center">
+  <img src="https://imgur.com/BKljCZr.png" width="80%" alt="Splunk showing source machine and IP address" />
+</p>
+
+### Windows Event 4625 Details
+<p align="center">
+  <img src="https://imgur.com/YpvjbUe.png" width="80%" alt="Windows Event ID 4625 detail view" />
+</p>
+
+## Skills Demonstrated
+- SIEM monitoring and investigation
+- Log analysis and event correlation
+- Windows security event interpretation
+- Authentication failure analysis
+- Blue-team lab development
+- Cybersecurity troubleshooting in virtualized environments
+
+## Key Takeaways
+This project helped me strengthen my understanding of:
+- How authentication failures appear in Windows logs
+- How Splunk can be used to investigate suspicious login behavior
+- How repeated failed logons can be identified and contextualized
+- Why centralized visibility is important for blue-team operations
+
+## Ethical Use Note
+This project was conducted in an isolated home lab for defensive learning, monitoring validation, and security analysis. No activity was performed against unauthorized systems.
+
+## Future Improvements
+- Add custom Splunk dashboards for failed logon trends
+- Create alerts for repeated authentication failures
+- Expand to include successful logons and privilege-related events
+- Map detections to security use cases and triage workflows
