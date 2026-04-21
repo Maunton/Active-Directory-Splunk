@@ -37,7 +37,7 @@ Generate authentication failures in a controlled lab environment and verify that
 
 ## Network Diagram
 <p align="center">
-  <img src="https://imgur.com/pEdUmkX.png" width="80%" alt="Active Directory and Splunk lab network diagram" />
+  <img src="images/network-diagram.png" ... />
 </p>
 
 ## Project Walkthrough
@@ -73,27 +73,27 @@ Through Splunk, I was able to observe:
 
 ### Failed Authentication Activity from Lab System
 <p align="center">
-  <img src="https://imgur.com/bJR5F1T.png" width="80%" alt="Lab-generated failed authentication activity" />
+  <img src="images/failed-auth-activity.png" ... />
 </p>
 
 ### Event ID 4625 Count in Splunk
 <p align="center">
-  <img src="https://imgur.com/KHPcF6r.png" width="80%" alt="Splunk search showing Event ID 4625 counts" />
+  <img src="images/splunk-4625-count.png" ... />
 </p>
 
 ### Repeated Failed Logons for the Account
 <p align="center">
-  <img src="https://imgur.com/8kX9qj7.png" width="80%" alt="Splunk results showing repeated failed account logons" />
+  <img src="images/repeated-failed-logons.png" ... />
 </p>
 
 ### Source Host and IP Visibility
 <p align="center">
-  <img src="https://imgur.com/BKljCZr.png" width="80%" alt="Splunk showing source machine and IP address" />
+  <img src="images/source-ip-visibility.png" ... />
 </p>
 
 ### Windows Event 4625 Details
 <p align="center">
-  <img src="https://imgur.com/YpvjbUe.png" width="80%" alt="Windows Event ID 4625 detail view" />
+  <img src="images/event-4625-details.png" ... />
 </p>
 
 ## Skills Demonstrated
